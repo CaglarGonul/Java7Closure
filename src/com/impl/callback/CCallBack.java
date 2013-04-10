@@ -12,6 +12,12 @@ public class CCallBack {
         cbs.add(f);
     }
     
+    public void removeCallBack(CallBack f){
+        if(cbs.contains(f)){
+            cbs.remove(f);
+        }
+    }
+    
     public void onAction(int i){
         for (CallBack callBack : cbs) {
             callBack.m(i);

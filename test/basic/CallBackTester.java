@@ -10,40 +10,26 @@ public class CallBackTester {
     
     @Test
     public void test_callback(){
-        //Add callback for pressing 1 
+ 
         CallBack cb1 = new CallBack() {
+            int x = 1;
             @Override
             public void m(int e) {
                 if(e==1){
-                    System.out.println("You pressed 1.");
+                    System.out.println("You register this callback " + x + " time/times");
+                    x++;
                 }
             }
         };
+        
         cb.registerCallBack(cb1);
-        //Add callback for pressing 2
-        CallBack cb2 = new CallBack() {
-            @Override
-            public void m(int e) {
-                if(e==2){
-                    System.out.println("You pressed 2.");
-                }
-            }
-        };
-        cb.registerCallBack(cb2);
-        //Add callback for pressing 3 
-        CallBack cb3 = new CallBack() {
-            @Override
-            public void m(int e) {
-                if(e==3){
-                    System.out.println("You pressed 3.");
-                }
-            }
-        };
-        cb.registerCallBack(cb3);
-        //Add callback for pressing 3 again
-        cb.registerCallBack(cb3);
-        //Lets press 3
-        cb.onAction(3);
+        cb.registerCallBack(cb1);
+        cb.registerCallBack(cb1);
+        cb.registerCallBack(cb1);
+        cb.registerCallBack(cb1);
+        cb.removeCallBack(cb1);
+        
+        cb.onAction(1);
     }
          
 }
